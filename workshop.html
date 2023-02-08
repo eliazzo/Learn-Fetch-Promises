@@ -7,6 +7,41 @@
   </head>
   <body>
     <h1>Open the console</h1>
-    <script></script>
+    <script>
+
+    /* Challenge */
+
+      fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+      .then((response) => response.json()) // access the response using the .json() method
+      .then((data) => console.log(data)) // console.log the data response accessed in line 12
+      .catch((error) => console.log(error))
+
+
+    /* Task 1 */
+
+      function getUser(name){
+        fetch(`https://api.github.com/users/${name}`)
+        return fetch(`https://api.github.com/users/${name}`)
+        .then ((response) => response.json()) // access the response using json() method
+      }
+
+      getUser("eliazzo")
+      // .then((user) => console.log(user))
+      .catch((error) => console.log(error))
+
+    /*Task 2 */
+
+      function getRepos(userObj){
+        return fetch(userObj.repos_url) // use .repos_url property from the object to access repos
+        .then ((response) => response.json()) // access this response
+      }
+
+      getUser("eliazzo") // access "eliazzo" information using getUser function
+      .then(getRepos) // then access eliazzo repo using getRepos function
+      .then((repo) => console.log(repo)) // console.log the list of repos
+      .catch((error) => console.log(error)) // console.log error in case of error
+
+      
+    </script>
   </body>
 </html>
